@@ -1,0 +1,25 @@
+img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.field {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.field > .choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.choice img:hover {
+  box-shadow: -2px -2px 20px 2px red, 2px 2px 20px 2px yellow;
+}

@@ -51,4 +51,16 @@ function game() {
   }
 }
 
-console.log(game());
+const imgButtons = document.querySelectorAll(".imgButton");
+
+imgButtons.forEach((imgButton) => {
+  imgButton.addEventListener("click", () => {
+    if (imgButton.id === "1") {
+      console.log("Rock");
+    } else if (imgButton.id === "2") {
+      console.log("Paper");
+    } else {
+      console.log("Scissor");
+    }
+  });
+});
