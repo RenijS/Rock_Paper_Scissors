@@ -1,6 +1,17 @@
 function compPlay() {
   const rand = Math.floor(Math.random() * 3) + 1;
-  console.log();
+  const compContainer = document.querySelector(".compContainer");
+  compContainer.innerHTML = "";
+  const compImg = document.createElement("img");
+  if (rand === 1) {
+    compImg.src = "img/rock.jpg";
+  } else if (rand === 2) {
+    compImg.src = "img/paper.jpg";
+  } else if (rand === 3) {
+    compImg.src = "img/scissor.jpg";
+  }
+  compImg.classList.add("selectedAction");
+  compContainer.appendChild(compImg);
   return rand;
 }
 function playerPlay() {
@@ -51,16 +62,28 @@ function game() {
   }
 }
 
+function scoreManager(winner) {
+  const playerScore = document.querySelector(".playerScore");
+  const compScore = document.querySelector(".compScore");
+  if (winner === "P") {
+    console.log("You Won!");
+    playerScore.textContent = parseInt(playerScore.textContent) + 1;
+  } else if (winner === "C") {
+    console.log("Computer Won!");
+    compScore.textContent = parseInt(compScore.textContent) + 1;
+  } else {
+    console.log("Draw!");
+  }
+}
+
 const imgButtons = document.querySelectorAll(".imgButton");
 
 imgButtons.forEach((imgButton) => {
   imgButton.addEventListener("click", () => {
-    if (imgButton.id === "1") {
-      console.log("Rock");
-    } else if (imgButton.id === "2") {
-      console.log("Paper");
-    } else {
-      console.log("Scissor");
-    }
+    imgButtons.forEach((imgButton) =>
+      imgButton.classList.remove("selectedAction")
+    );
+    imgButton.classList.add("selectedAction");
+    scoreManager(playGame(compPlay(), parseInt(imgButton.id)));
   });
 });
