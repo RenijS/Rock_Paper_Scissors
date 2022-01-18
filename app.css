@@ -36,6 +36,16 @@ h1 {
   height: 200px;
 }
 
+.help .question {
+  width: 40px;
+  height: 40px;
+  background-color: burlywood;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bolder;
+  line-height: 40px;
+}
+
 .choice img:hover {
   box-shadow: -2px -2px 20px 2px red, 2px 2px 20px 2px yellow;
 }
