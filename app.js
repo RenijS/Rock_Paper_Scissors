@@ -62,9 +62,9 @@ function game() {
   }
 }
 
+const playerScore = document.querySelector(".playerScore");
+const compScore = document.querySelector(".compScore");
 function scoreManager(winner) {
-  const playerScore = document.querySelector(".playerScore");
-  const compScore = document.querySelector(".compScore");
   if (winner === "P") {
     console.log("You Won!");
     playerScore.textContent = parseInt(playerScore.textContent) + 1;
@@ -74,12 +74,28 @@ function scoreManager(winner) {
   } else {
     console.log("Draw!");
   }
+
+  if (playerScore.textContent == 5 || compScore.textContent == 5) {
+    const resultReply = document.querySelector(".resultReply");
+    document.getElementById("result").style.display = "block";
+    document.getElementById("result").style.textAlign = "center";
+    if (playerScore.textContent == 5) {
+      resultReply.textContent = `You Won! \n Player: ${playerScore.textContent} Computer: ${compScore.textContent}`;
+    } else if (compScore.textContent == 5) {
+      resultReply.textContent = `Computer Won! \n Player: ${playerScore.textContent} Computer: ${compScore.textContent}`;
+    }
+    playerScore.textContent = 0;
+    compScore.textContent = 0;
+  }
 }
 
 const imgButtons = document.querySelectorAll(".imgButton");
 
 imgButtons.forEach((imgButton) => {
   imgButton.addEventListener("click", () => {
+    if (playerScore.textContent == 0 && compScore.textContent == 0) {
+      document.getElementById("result").style.display = "none";
+    }
     imgButtons.forEach((imgButton) =>
       imgButton.classList.remove("selectedAction")
     );

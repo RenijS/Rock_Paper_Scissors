@@ -23,11 +23,30 @@ h1 {
   text-align: center;
 }
 
-.compContainer,
-.scoreBoard {
+.compContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.scoreBoard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4px 0;
+}
+
+.scoreBoard .result {
+  display: none;
+}
+
+.result h3 {
+  margin-top: 0;
+}
+
+.resultReply {
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .selectedAction {
@@ -37,6 +56,8 @@ h1 {
 }
 
 .help {
+  width: 40px;
+  margin-left: 96%;
   display: flex;
   flex-direction: column;
   align-items: end;
@@ -53,6 +74,7 @@ h1 {
 }
 
 .help .popup {
+  width: 500px;
   border-radius: 10px;
   background-color: #eee;
   opacity: 0;
@@ -83,4 +105,26 @@ h1 {
 
 .choice img:hover {
   box-shadow: -2px -2px 20px 2px red, 2px 2px 20px 2px yellow;
+}
+
+@media (max-width: 780px) {
+  .help {
+    margin-left: 93%;
+  }
+}
+
+@media (max-width: 500px) {
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .selectedAction {
+    width: 140px;
+    height: 140px;
+  }
+
+  .help .popup {
+    width: 300px;
+  }
 }
